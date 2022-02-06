@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 16:46:56 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/04 22:36:57 by 0xNino           ###   ########.fr       */
+/*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
+/*   Updated: 2022/02/06 23:03:48 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	push_swap(int argc, char **argv)
 {
-	return (push_swap(argc, argv));
+	if (argc < 2)
+		return (0);
 }
