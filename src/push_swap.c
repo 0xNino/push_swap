@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/12 00:21:23 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/14 16:42:01 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	main(int argc, char **argv)
 {
+	t_stacks	stacks;
+
 	if (argc < 2)
 		ft_putendl_fd("Error\nToo few arguments", STDERR_FILENO);
-	if (argc >= 2)
-		return (0);
+	if (argc == 2)
+		stacks.a = str_to_dlst(argv[1]);
+	else
+		stacks.a = arr_to_dlst(argc, argv);
 }
