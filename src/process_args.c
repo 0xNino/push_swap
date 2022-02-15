@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/15 14:06:12 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/15 23:04:27 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,25 @@ t_dlist	*str_to_dlst(char *str)
 	int		*content;
 	char	**arr;
 
-	dlst = ft_dlstnew();
 	arr = ft_split(str, ' ');
-	printf("arr[0] = %s\n", arr[0]);
-	i = 0;
-	while (arr[i] && check_args(arr[i]))
+	if (!check_args(arr, 0))
 	{
-		printf("start while strtodl\n");
+		ft_free_arr(arr);
+		return (NULL);
+	}
+	dlst = ft_dlstnew();
+	i = -1;
+	while (arr[++i])
+	{
 		content = malloc(sizeof(int));
 		if (!content)
 			return (NULL);
 		*content = ft_atoi(arr[i]);
 		ft_dlstadd_last(dlst, content);
-		i++;
 	}
-	printf("end while strtodl\n");
-	if (!content || !dlst || !check_args(arr[i - 1]))
+	if (!content || !dlst)
 		ft_dlstclear(&dlst);
-	printf("arr[0] = %s\n", arr[0]);
 	ft_free_arr(arr);
-	printf("test\n");
 	return (dlst);
 }
 
@@ -48,51 +47,38 @@ t_dlist	*arr_to_dlst(int argc, char **argv)
 	int		i;
 	int		*content;
 
+	if (!check_args(argv, 1))
+		return (NULL);
 	dlst = ft_dlstnew();
-	i = 1;
-	while (i < argc && check_args(argv[i]))
+	i = 0;
+	while (++i < argc)
 	{
 		content = malloc(sizeof(int));
 		if (!content)
 			return (NULL);
 		*content = ft_atoi(argv[i]);
 		ft_dlstadd_last(dlst, content);
-		i++;
 	}
-	if (!content || !dlst || !check_args(argv[i - 1]))
-		printf("test\n");
-//		ft_dlstclear(&dlst);
+	if (!content || !dlst)
+		ft_dlstclear(&dlst);
 	return (dlst);
 }
 
-int	check_args(char *str)
+int	check_args(char **arr, int i)
 {
-	int	i;
+	int	j;
 
-	i = 0;
-	while (str[i])
+	while (arr[i])
 	{
-		if (('0' <= str[i] && str[i] <= '9') || str[i] == ' ')
-			i++;
-		else
-			return (0);
+		j = 0;
+		while (arr[i][j])
+		{
+			if ((('0' <= arr[i][j] && arr[i][j] <= '9') || arr[i][j] == ' ')&& (FT_INT_MIN <= ft_atol(arr[i]) && ft_atol(arr[i]) <= FT_INT_MAX))
+				j++;
+			else
+				return (0);
+		}
+		i++;
 	}
 	return (1);
-}
-
-int	main(int argc, char **argv)
-{
-	t_dlist	*dlst;
-
-	if (argc == 2)
-	{
-		dlst = str_to_dlst(argv[1]);
-		ft_dlstprintint(dlst);
-	}
-	else if (argc > 2)
-	{
-		dlst = arr_to_dlst(argc, argv);
-		ft_dlstprintint(dlst);
-	}
-	return (0);
 }

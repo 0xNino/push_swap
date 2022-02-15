@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/15 13:59:42 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/15 21:47:29 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,8 @@ int	main(int argc, char **argv)
 		stacks.a = str_to_dlst(argv[1]);
 	else
 		stacks.a = arr_to_dlst(argc, argv);
-	printf("end main\n");
+	if (!stacks.a)
+		ft_putendl_fd("Error\n", STDERR_FILENO);
+	else
+		ft_dlstprintint(stacks.a);
 }
