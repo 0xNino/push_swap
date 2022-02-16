@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 11:51:55 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/16 13:28:44 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,26 @@ int	check_args(char **arr, int i)
 				return (0);
 		}
 		i++;
+	}
+	return (1);
+}
+
+int	check_dup(t_dlist *dlst)
+{
+	t_node	*node;
+	t_node	*current;
+
+	node = dlst->first;
+	while (node->next)
+	{
+		current = node;
+		while (current->next)
+		{
+			current = current->next;
+			if (*(int *)current->content == *(int *)(node->content))
+				return (0);
+		}
+		node = node->next;
 	}
 	return (1);
 }
