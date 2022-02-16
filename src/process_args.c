@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 00:09:01 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/16 11:50:17 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,15 @@ int	check_args(char **arr, int i)
 		return (0);
 	while (arr[i])
 	{
-		j = 0;
+		if (arr[i][0] == '-')
+			j = 1;
+		else
+			j = 0;
 		while (arr[i][j])
 		{
-			if ((('0' <= arr[i][j] && arr[i][j] <= '9') || arr[i][j] == ' ') &&
-			(FT_INT_MIN <= ft_atol(arr[i]) && ft_atol(arr[i]) <= FT_INT_MAX))
+			if ((('0' <= arr[i][j] && arr[i][j] <= '9')
+			|| arr[i][j] == ' ')
+			&& (INT_MIN <= ft_atol(arr[i]) && ft_atol(arr[i]) <= INT_MAX))
 				j++;
 			else
 				return (0);
