@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:47:14 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 13:28:57 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/16 14:41:38 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_dlist	*str_to_dlst(char *str);
 t_dlist	*arr_to_dlst(int argc, char **argv);
 int		check_args(char **arr, int i);
 int		check_dup(t_dlist *dlst);
+int		dlst_is_ordered(t_dlist *dlst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 13:28:44 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/16 14:44:23 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,20 @@ int	check_dup(t_dlist *dlst)
 				return (0);
 		}
 		node = node->next;
+	}
+	return (1);
+}
+
+int	dlst_is_ordered(t_dlist *dlst)
+{
+	t_node	*current;
+
+	current = dlst->first;
+	while (current->next)
+	{
+		if (*(int *)current->content > *(int *)(current->next->content))
+			return (0);
+		current = current->next;
 	}
 	return (1);
 }
