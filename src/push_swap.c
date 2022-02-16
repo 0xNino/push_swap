@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 15:11:22 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/16 17:18:29 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	main(int argc, char **argv)
 	else if (dlst_is_ordered(stacks.a))
 		return (0);
 	else
+	{
+		solve(stacks.a);
 		ft_dlstprintint(stacks.a);
+	}
 	ft_dlstclear(&stacks.a);
 	ft_dlstclear(&stacks.b);
 	ft_dlstclear(&stacks.solution);
