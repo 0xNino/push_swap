@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 15:33:52 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/17 16:37:41 by 0xNino           ###   ########.fr       */
+/*   Created: 2022/02/17 16:28:25 by 0xNino            #+#    #+#             */
+/*   Updated: 2022/02/17 16:51:54 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap(t_dlist *dlst)
+int	node_isbigger(t_node *node1, t_node *node2)
 {
-	void	*tmp;
-
-	if (dlst->size < 2)
-		return ;
-	tmp = dlst->first->content;
-	dlst->first->content = dlst->first->next->content;
-	dlst->first->next->content = tmp;
+	return (*(int *)node1->content > *(int *)node2->content);
 }
 
-void	operations(t_stacks *stacks, char *operation)
+void	print_solution(t_stacks *stacks)
 {
-	if (!ft_strncmp(operation, "sa", ft_strlen(operation)))
-		swap(stacks->a);
-	ft_dlstadd_last(stacks->solution, ft_strdup(operation));
+	t_node	*current;
+
+	current = stacks->solution->first;
+	while (current)
+	{
+		ft_putendl_fd(current->content, STDOUT_FILENO);
+		current = current->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/17 13:40:34 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/17 16:59:47 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error", STDERR_FILENO);
 	else if (!dlst_is_ordered(stacks.a))
 	{
-		solve(stacks.a);
+		solve(&stacks);
 		ft_dlstprintint(stacks.a);
 	}
+	print_solution(&stacks);
 	ft_dlstclear(&stacks.a);
 	ft_dlstclear(&stacks.b);
 	ft_dlstclear(&stacks.solution);
