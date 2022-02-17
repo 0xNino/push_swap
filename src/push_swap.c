@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 17:18:29 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/17 13:40:34 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ int	main(int argc, char **argv)
 	stacks.solution = ft_dlstnew();
 	if (!stacks.a || !stacks.b || !stacks.solution || !check_dup(stacks.a))
 		ft_putendl_fd("Error", STDERR_FILENO);
-	else if (dlst_is_ordered(stacks.a))
-		return (0);
-	else
+	else if (!dlst_is_ordered(stacks.a))
 	{
 		solve(stacks.a);
 		ft_dlstprintint(stacks.a);
