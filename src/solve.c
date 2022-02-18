@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:06:40 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/17 21:34:46 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/18 16:03:16 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,6 @@ void	solve_3(t_stacks *stacks)
 
 void	solve_5(t_stacks *stacks)
 {
-	operations(stacks, "pb");
-	operations(stacks, "pb");
-	solve_3(stacks);
-	operations(stacks, "pa");
-	if (node_isbigger(stacks->a->first, stacks->a->first->next))
-		operations(stacks, "ra");
-	operations(stacks, "pa");
-	if (node_isbigger(stacks->a->first, stacks->a->first->next))
-		operations(stacks, "ra");
 }
 
 void	solve_big(t_stacks *stacks)

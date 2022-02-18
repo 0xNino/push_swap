@@ -6,7 +6,7 @@
 #    By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 16:51:38 by 0xNino            #+#    #+#              #
-#    Updated: 2022/02/17 16:33:23 by 0xNino           ###   ########.fr        #
+#    Updated: 2022/02/18 16:05:42 by 0xNino           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 RM		= rm -f
 
-SRCS	=	src/operations.c \
+SRCS	=	src/check.c \
+			src/operations.c \
 			src/process_args.c \
 			src/push_swap.c \
 			src/solve.c \

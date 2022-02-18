@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/16 14:44:23 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/18 16:06:51 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,61 +64,23 @@ t_dlist	*arr_to_dlst(int argc, char **argv)
 	return (dlst);
 }
 
-int	check_args(char **arr, int i)
-{
-	int	j;
-
-	if (!arr)
-		return (0);
-	while (arr[i])
-	{
-		if (arr[i][0] == '-')
-			j = 1;
-		else
-			j = 0;
-		while (arr[i][j])
-		{
-			if ((('0' <= arr[i][j] && arr[i][j] <= '9') || arr[i][j] == ' ')
-			&& (INT_MIN <= ft_atol(arr[i]) && ft_atol(arr[i]) <= INT_MAX))
-				j++;
-			else
-				return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	check_dup(t_dlist *dlst)
-{
-	t_node	*node;
-	t_node	*current;
-
-	node = dlst->first;
-	while (node->next)
-	{
-		current = node;
-		while (current->next)
-		{
-			current = current->next;
-			if (*(int *)current->content == *(int *)(node->content))
-				return (0);
-		}
-		node = node->next;
-	}
-	return (1);
-}
-
-int	dlst_is_ordered(t_dlist *dlst)
+int	*dlst_to_arr(t_dlist *dlst)
 {
 	t_node	*current;
+	int		*i_arr;
+	int		i;
 
+	if (!dlst || dlst->size == 0)
+		return (NULL);
+	i_arr = malloc(sizeof(int) * dlst->size);
+	if (!i_arr)
+		return (NULL);
 	current = dlst->first;
-	while (current->next)
+	i = 0;
+	while (current)
 	{
-		if (*(int *)current->content > *(int *)(current->next->content))
-			return (0);
+		i_arr[i++] = *(int *)current->content;
 		current = current->next;
 	}
-	return (1);
+	return (i_arr);
 }
