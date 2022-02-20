@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:47:14 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/18 16:05:24 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/20 18:45:31 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,15 @@ typedef struct s_stacks
 	t_dlist	*solution;
 }	t_stacks;
 
+// check
+int		check_args(char **arr, int i);
+int		check_dup(t_dlist *dlst);
+int		check_is_ordered(t_dlist *dlst);
+
 // operations
 void	swap(t_dlist *dlst);
 void	operations(t_stacks *stacks, char *operation);
+void	operations_nb(t_stacks *stacks, char *operation, int nb);
 
 // process args
 t_dlist	*str_to_dlst(char *str);
@@ -43,13 +49,9 @@ void	solve_3(t_stacks *stacks);
 void	solve_5(t_stacks *stacks);
 void	solve_big(t_stacks *stacks);
 
-// check
-int		check_args(char **arr, int i);
-int		check_dup(t_dlist *dlst);
-int		check_is_ordered(t_dlist *dlst);
-
 // utils
 int		node_isbigger(t_node *node1, t_node *node2);
 void	print_solution(t_stacks *stacks);
+void	pb_int(t_stacks *stacks, int nb);
 
 #endif

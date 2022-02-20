@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 15:33:52 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/17 21:02:52 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/20 16:52:44 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,16 @@ void	operations(t_stacks *stacks, char *operation)
 	if (!ft_strcmp(operation, "rrb") || !ft_strcmp(operation, "rrr"))
 		ft_dlstput_first(stacks->b, ft_dlstpush_last(stacks->b));
 	ft_dlstadd_last(stacks->solution, ft_strdup(operation));
+}
+
+void	operations_nb(t_stacks *stacks, char *operation, int nb)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb)
+	{
+		operations(stacks, operation);
+		i++;
+	}
 }
