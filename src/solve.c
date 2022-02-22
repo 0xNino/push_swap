@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:06:40 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/20 17:32:57 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/22 18:06:32 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	solve_5(t_stacks *stacks)
 
 void	solve_big(t_stacks *stacks)
 {
-	if (stacks)
-		return ;
+	int	*i_arr;
+
+	i_arr = dlst_to_arr(stacks->a);
 }
