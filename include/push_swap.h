@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:47:14 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/20 18:45:31 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/23 18:26:20 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct s_stacks
 	t_dlist	*b;
 	t_dlist	*solution;
 }	t_stacks;
+
+typedef struct s_ps
+{
+	int	pivot;
+	int	*i_arr;
+}	t_ps;
 
 // check
 int		check_args(char **arr, int i);
@@ -52,6 +58,6 @@ void	solve_big(t_stacks *stacks);
 // utils
 int		node_isbigger(t_node *node1, t_node *node2);
 void	print_solution(t_stacks *stacks);
-void	pb_int(t_stacks *stacks, int nb);
+void	pb_5(t_stacks *stacks, int nb);
 
 #endif

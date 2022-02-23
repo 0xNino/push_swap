@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:28:25 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/20 18:47:34 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/23 15:57:34 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_solution(t_stacks *stacks)
 	}
 }
 
-void	pb_int(t_stacks *stacks, int nb)
+void	pb_5(t_stacks *stacks, int nb)
 {
 	size_t	pos;
 	t_node	*current;
