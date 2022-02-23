@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:47:14 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/23 18:26:20 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/23 23:20:14 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef struct s_stacks
 	t_dlist	*solution;
 }	t_stacks;
 
-typedef struct s_ps
+typedef struct s_info
 {
 	int	pivot;
 	int	*i_arr;
-}	t_ps;
+}	t_info;
 
 // check
 int		check_args(char **arr, int i);
