@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:18:29 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/24 18:02:00 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/24 23:52:28 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	sort(int tmp, t_stacks *stacks, t_info *info)
 		else
 			operations(stacks, "ra");
 		ft_dlstprintint(stacks->a);
+		ft_dlstprintint(stacks->b);
+		printf("\n");
 		tmp--;
 	}
 }
@@ -63,5 +65,52 @@ void	push_a(t_stacks *stacks, t_info *info)
 	{
 		info->flag_a = 0;
 		info->flag_b = 0;
+		info->max_b = dlst_max(stacks->b, INT_MIN);
+		info->max_a = dlst_max(stacks->b, info->max_b);
+		info->pos_a = dlst_pos(stacks->b, info->max_b);
+		info->pos_b = dlst_pos(stacks->b, info->max_a);
+		if (info->pos_a < (int)stacks->b->size / 2)
+			info->flag_b = 1;
+		if (info->max_a != INT_MIN && info->pos_b < (int)stacks->b->size / 2)
+			info->flag_b = 1;
+		info->flags = info->flag_a;
+		if (info->max_a != INT_MIN && info->flag_a == info->flag_b
+			&& ((info->pos_a > info->pos_b && info->flag_a)
+				|| (info->pos_a < info->pos_b && !info->flag_a)))
+		{
+			push_max(stacks, info->max_a, info);
+			push_max(stacks, info->max_b, info);
+			operations(stacks, "sa");
+		}
+		else
+			push_max(stacks, info->max_b, info);
 	}
+}
+
+void	push_max(t_stacks *stacks, int m, t_info *info)
+{
+	int		f;
+	t_node	*current;
+
+	f = 0;
+	current = stacks->b->first;
+	if (*(int *)current->content < m)
+	{
+		while (*(int *)current->content != m)
+		{
+			if (*(int *)current->content == m)
+			{
+				operations(stacks, "sb");
+				operations(stacks, "pa");
+				f = 1;
+				break ;
+			}
+			if (info->flags == 1)
+				operations(stacks, "rb");
+			else
+				operations(stacks, "rrb");
+		}
+	}
+	if (!f)
+		operations(stacks, "pa");
 }

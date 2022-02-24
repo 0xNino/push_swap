@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:34:54 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/23 23:13:38 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/24 23:49:26 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 		solve(&stacks);
 		print_solution(&stacks);
 	}
+	printf("end\n");
 	ft_dlstprintint(stacks.a);
 	ft_dlstprintint(stacks.b);
 	ft_dlstclear(&stacks.a);

@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:47:14 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/24 16:02:47 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/24 23:37:41 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_info
 	int	*i_arr;
 	int	max_a;
 	int	max_b;
+	int	flags;
 	int	flag_a;
 	int	flag_b;
 	int	pos_a;
@@ -43,6 +44,11 @@ typedef struct s_info
 int		check_args(char **arr, int i);
 int		check_dup(t_dlist *dlst);
 int		check_is_ordered(t_dlist *dlst);
+
+// dlst_utils
+int		dlst_median(t_dlist *dlst, int size);
+int		dlst_pos(t_dlist *dlst, int n);
+int		dlst_max(t_dlist *dlst, int skip);
 
 // operations
 void	swap(t_dlist *dlst);
@@ -58,6 +64,7 @@ int		*dlst_to_arr(t_dlist *dlst);
 void	solve_big(t_stacks *stacks);
 void	sort(int tmp, t_stacks *stacks, t_info *info);
 void	push_a(t_stacks *stacks, t_info *info);
+void	push_max(t_stacks *stacks, int m, t_info *info);
 
 // solve
 void	solve(t_stacks *stacks);
@@ -69,7 +76,5 @@ void	solve_5(t_stacks *stacks);
 int		node_isbigger(t_node *node1, t_node *node2);
 void	print_solution(t_stacks *stacks);
 void	pb_5(t_stacks *stacks, int nb);
-int		dlst_median(t_dlist *dlst, int size);
-int		dlst_pos(int n, t_dlist *dlst);
 
 #endif

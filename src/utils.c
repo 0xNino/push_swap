@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:28:25 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/24 16:02:36 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/24 22:14:54 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,4 @@ void	pb_5(t_stacks *stacks, int nb)
 		current = current->next;
 		pos++;
 	}
-}
-
-int	dlst_median(t_dlist *dlst, int size)
-{
-	int	*i_arr;
-	int	median;
-
-	i_arr = dlst_to_arr(dlst);
-	ft_quicksort(i_arr, 0, size - 1);
-	median = i_arr[size / 2];
-	free(i_arr);
-	return (median);
-}
-
-int	dlst_pos(int n, t_dlist *dlst)
-{
-	int		pos;
-	t_node	*current;
-
-	pos = 0;
-	current = dlst->first;
-	while (current->content != n)
-	{
-		current = current->next;
-		pos++;
-	}
-	return (pos);
 }
