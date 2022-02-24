@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:18:29 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/23 23:28:32 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/24 18:02:00 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,7 @@ void	solve_big(t_stacks *stacks)
 		sort(tmp, stacks, info);
 	}
 	operations_nb(stacks, "pb", 2);
-}
-
-int	dlst_median(t_dlist *stack, int size)
-{
-	int	*i_arr;
-	int	median;
-
-	i_arr = dlst_to_arr(stack);
-	ft_quicksort(i_arr, 0, size - 1);
-	median = i_arr[size / 2];
-	free(i_arr);
-	return (median);
+	push_a(stacks, info);
 }
 
 void	sort(int tmp, t_stacks *stacks, t_info *info)
@@ -51,7 +40,8 @@ void	sort(int tmp, t_stacks *stacks, t_info *info)
 		if (*(int *)stacks->a->first->content <= info->pivot)
 		{
 			operations(stacks, "pb");
-			if (*(int *)stacks->b->first->content < dlst_median(stacks->b, stacks->b->size)
+			if (*(int *)stacks->b->first->content
+				< dlst_median(stacks->b, stacks->b->size)
 				&& stacks->b->size > 1)
 			{
 				if (*(int *)stacks->a->first->content > info->pivot)
@@ -64,5 +54,14 @@ void	sort(int tmp, t_stacks *stacks, t_info *info)
 			operations(stacks, "ra");
 		ft_dlstprintint(stacks->a);
 		tmp--;
+	}
+}
+
+void	push_a(t_stacks *stacks, t_info *info)
+{
+	while (stacks->b->size)
+	{
+		info->flag_a = 0;
+		info->flag_b = 0;
 	}
 }
