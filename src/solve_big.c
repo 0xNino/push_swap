@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:18:29 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/24 23:52:28 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/25 15:11:31 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	solve_big(t_stacks *stacks)
 	if (!info)
 		return ;
 	info->i_arr = dlst_to_arr(stacks->a);
+	ft_print_i_arr(info->i_arr);
 	ft_quicksort(info->i_arr, 0, stacks->a->size - 1);
 	ft_print_i_arr(info->i_arr);
 	while (stacks->a->size > 2)
@@ -52,9 +53,6 @@ void	sort(int tmp, t_stacks *stacks, t_info *info)
 		}
 		else
 			operations(stacks, "ra");
-		ft_dlstprintint(stacks->a);
-		ft_dlstprintint(stacks->b);
-		printf("\n");
 		tmp--;
 	}
 }

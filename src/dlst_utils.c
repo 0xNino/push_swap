@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 22:14:47 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/24 23:40:02 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/25 15:21:30 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	dlst_median(t_dlist *dlst, int size)
 	int	median;
 
 	i_arr = dlst_to_arr(dlst);
+	ft_print_i_arr(i_arr);
 	ft_quicksort(i_arr, 0, size - 1);
+	ft_print_i_arr(i_arr);
 	median = i_arr[size / 2];
 	free(i_arr);
 	return (median);
