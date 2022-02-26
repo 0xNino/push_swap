@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:18:29 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/25 15:11:31 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/26 13:28:36 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,21 @@ void	solve_big(t_stacks *stacks)
 {
 	t_info	*info;
 	int		tmp;
+	int		i;
 
+	i = 0;
 	info = malloc(sizeof(t_info));
 	if (!info)
 		return ;
+	ft_dlstprintint(stacks->a);
 	info->i_arr = dlst_to_arr(stacks->a);
+	while (info->i_arr[i])
+		i++;
+	printf("size of arr : %i\n", i);
 	ft_print_i_arr(info->i_arr);
 	ft_quicksort(info->i_arr, 0, stacks->a->size - 1);
 	ft_print_i_arr(info->i_arr);
+	exit(1);
 	while (stacks->a->size > 2)
 	{
 		info->pivot = dlst_median(stacks->a, stacks->a->size);
