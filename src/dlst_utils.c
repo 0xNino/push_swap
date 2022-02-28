@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 22:14:47 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/26 12:51:06 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/28 18:15:07 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	dlst_pos(t_dlist *dlst, int n)
 
 	pos = 0;
 	current = dlst->first;
-	while (*(int *)current->content != n)
+	while (*(int *)current->content != n && current->next)
 	{
 		current = current->next;
 		pos++;

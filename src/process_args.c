@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/26 13:25:51 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/02/28 14:17:09 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ int	*dlst_to_arr(t_dlist *dlst)
 	i = 0;
 	while (current)
 	{
-		i_arr[i++] = *(int *)current->content;
+		i_arr[i] = *(int *)current->content;
 		current = current->next;
+		i++;
 	}
 	return (i_arr);
 }
