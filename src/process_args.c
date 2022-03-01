@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/28 14:17:09 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/03/01 18:10:26 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,28 @@ int	*dlst_to_arr(t_dlist *dlst)
 		i++;
 	}
 	return (i_arr);
+}
+
+void	normalize(t_dlist *dlst)
+{
+	int		i;
+	int		*i_arr;
+	t_node	*current;
+
+	i_arr = dlst_to_arr(dlst);
+	current = dlst->first;
+	ft_quicksort(i_arr, 0, dlst->size - 1);
+	while (current)
+	{
+		i = -1;
+		while (++i < (int)dlst->size)
+		{
+			if (*(int *)current->content == i_arr[i])
+			{
+				*(int *)current->content = i;
+				break ;
+			}
+		}
+		current = current->next;
+	}
 }

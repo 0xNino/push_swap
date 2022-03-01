@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:47:14 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/24 23:37:41 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/03/01 17:19:57 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ void	operations_nb(t_stacks *stacks, char *operation, int nb);
 t_dlist	*str_to_dlst(char *str);
 t_dlist	*arr_to_dlst(int argc, char **argv);
 int		*dlst_to_arr(t_dlist *dlst);
+void	normalize(t_dlist *dlst);
+
+// radix_sort
+void	radix_sort(t_stacks *stacks);
 
 // solve_big
 void	solve_big(t_stacks *stacks);

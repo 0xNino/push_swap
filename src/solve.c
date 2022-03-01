@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:06:40 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/02/23 23:20:19 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/03/01 14:48:55 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	solve(t_stacks *stacks)
 	else if (stacks->a->size < 6)
 		solve_5(stacks);
 	else
-		solve_big(stacks);
+		radix_sort(stacks);
 }
 
 void	solve_2(t_stacks *stacks)
