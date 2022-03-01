@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:06:40 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/03/01 14:48:55 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/03/01 18:21:07 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,29 @@ void	solve_5(t_stacks *stacks)
 	operations(stacks, "pa");
 	if (node_isbigger(stacks->a->first, stacks->a->first->next))
 		operations(stacks, "ra");
+}
+
+void	radix_sort(t_stacks *stacks)
+{
+	int		i;
+	int		bits;
+	int		size;
+
+	normalize(stacks->a);
+	bits = 0;
+	size = stacks->a->size;
+	while (!check_is_ordered(stacks->a))
+	{
+		i = 0;
+		while (i++ < size)
+		{
+			if (((*(int *)stacks->a->first->content >> bits) & 1) == 1)
+				operations(stacks, "ra");
+			else
+				operations(stacks, "pb");
+		}
+		while (stacks->b->size)
+			operations(stacks, "pa");
+		bits++;
+	}
 }

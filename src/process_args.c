@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:23:13 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/03/01 18:10:26 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/03/01 18:17:39 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,5 @@ void	normalize(t_dlist *dlst)
 		}
 		current = current->next;
 	}
+	free(i_arr);
 }
