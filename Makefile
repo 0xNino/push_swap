@@ -6,7 +6,7 @@
 #    By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 16:51:38 by 0xNino            #+#    #+#              #
-#    Updated: 2022/03/01 18:13:59 by 0xNino           ###   ########.fr        #
+#    Updated: 2022/03/01 18:29:06 by 0xNino           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,13 +38,13 @@ all: $(NAME)
 
 $(NAME):	$(OBJS)
 			@$(MAKE) -sC $(LIB_DIR)
-			@echo "[$(GREEN)libft\tcompiled$(RESET)]"
+			@echo "[$(GREEN)libft\t\tcompiled$(RESET)]"
 			@$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIB)
 			@echo "[$(GREEN)push_swap\tcompiled$(RESET)]"
 
 clean:
 		@$(MAKE) -sC $(LIB_DIR) clean
-		@echo "[$(RED)libft\tdeleted$(RESET)]"
+		@echo "[$(RED)libft\t\tdeleted$(RESET)]"
 		@$(RM) $(OBJS)
 		@echo "[$(RED)push_swap\tdeleted$(RESET)]"
 
