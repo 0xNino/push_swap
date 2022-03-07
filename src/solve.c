@@ -6,7 +6,7 @@
 /*   By: 0xNino <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:06:40 by 0xNino            #+#    #+#             */
-/*   Updated: 2022/03/01 21:14:37 by 0xNino           ###   ########.fr       */
+/*   Updated: 2022/03/07 17:27:37 by 0xNino           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,12 @@ void	solve_5(t_stacks *stacks)
 	i_arr = dlst_to_arr(stacks->a);
 	ft_quicksort(i_arr, 0, stacks->a->size - 1);
 	pb_5(stacks, i_arr[0]);
-	pb_5(stacks, i_arr[4]);
+	pb_5(stacks, i_arr[stacks->a->size]);
 	free(i_arr);
-	solve_3(stacks);
+	if (stacks->a->size == 2)
+		solve_2(stacks);
+	else
+		solve_3(stacks);
 	operations(stacks, "pa");
 	if (node_isbigger(stacks->a->first, stacks->a->first->next))
 		operations(stacks, "ra");
